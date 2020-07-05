@@ -1,0 +1,125 @@
+﻿
+.uploadImageContainer {
+    /*position: absolute;
+    top: 40px;
+    left: 91px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #0e385f70;
+    margin: 0 auto;
+    margin-bottom: -48px;
+    display: none;*/
+    /*--------------------*/
+    /* top: 0px; */
+    /* left: 0px; */
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #0e385f70;
+    margin: 0 auto;
+    margin-bottom: -48px;
+    display: none;
+}
+
+.user-pic-edit:hover .uploadImageContainer {
+    /*background-color: red;*/
+    display: block;
+}
+
+#cameraUploadImage {
+    color: #f8f9facf;
+    top: 40px;
+    position: relative;
+    font-size: 35px;
+}
+
+#profileImageHolder {
+    width: 150px;
+    background-image: url("/ProfilePics/default.jpg");
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    background-size: cover;
+}
+/*input[type="file"] {
+    display: none;
+}*/
+
+.custom-file-upload {
+    /*border: 1px solid #ccc;*/
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.user-pic-edit {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    margin-bottom: -48px;
+    position: relative;
+}
+
+    .user-pic-edit img {
+        float: none;
+        border: 5px solid #fff;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -ms-border-radius: 100px;
+        -o-border-radius: 100px;
+        border-radius: 100px;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        left: 0px;
+    }
+
+.addRemoveFriend {
+    margin-top: 1rem;
+}
+
+.button-addfriend {
+    background-color: #0e385f;
+}
+
+.bioInfo {
+    font-size: 1rem;
+}
+
+#bioContent {
+    padding: 5px;
+    line-height: 22px;
+}
+
+@media (min-width: 544px) {
+    .bioInfo {
+        font-size: 1.5rem;
+    }
+    /*1rem = 16px*/
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+    .bioInfo {
+        font-size: 2rem;
+    }
+    /*1rem = 16px*/
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .bioInfo {
+        font-size: 2.5rem;
+    }
+    /*1rem = 16px*/
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .bioInfo {
+        font-size: 3rem;
+    }
+    /*1rem = 16px*/
+}

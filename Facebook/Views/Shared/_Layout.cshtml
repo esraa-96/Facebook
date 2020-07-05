@@ -1,0 +1,176 @@
+﻿
+@{
+    Layout = null;
+    LayoutUserDto layoutUserDto = (LayoutUserDto)ViewData["LayoutData"];
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook - @ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    @* Website Icon *@
+    <link rel="shortcut icon" type="image/svg" href="~/FBIcon/facebook-icon.svg" />
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/slick-carousel/slick.css" rel="stylesheet" />
+    <link href="~/lib/slick-carousel/slick-theme.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/line-awesome-font-awesome.css" rel="stylesheet" />
+    <link href="~/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <link href="~/css/line-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/toastr.min.css">
+    <link href="~/css/HomeStyle.css" rel="stylesheet" />
+    <link href="~/css/profilestyle.css" rel="stylesheet" />
+</head>
+
+
+<body>
+
+
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <div class="header-data">
+                    <div class="logo">
+                        <div id="ll">
+                            @if (layoutUserDto.actions.Where(x => x.Url == "/Home/Index").Any())
+                            {
+                                <a href="~/Home/Index" title=""><i class="fab fa-facebook-f fa-lg" style="color:#fff;"></i></a>
+                            }
+                            else
+                            {
+                                <i class="fab fa-facebook-f fa-lg" style="color:#fff;"></i>
+                            }
+                        </div>
+                    </div><!--logo end-->
+                    @if (layoutUserDto.actions.Where(x => x.Url == "/Search/Index").Any())
+                    {
+                        <div class="search-bar">
+                            <form action="/Search/Index">
+                                <input type="text" name="search" placeholder="Search...">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div><!--search-bar end-->
+                    }
+                    <nav>
+                        <ul>
+                            <li>
+                                @if (layoutUserDto.actions.Where(x => x.Url == "/Home/Index").Any())
+                                {
+                                    <a asp-action="Index" asp-controller="Home" title="">
+                                        <div><i class="fas fa-home fa-lg"></i></div>
+                                        Home
+                                    </a>
+                                }
+                            </li>
+                            <li>
+                                @if (layoutUserDto.actions.Where(x => x.Url == "/Profile/Profile").Any())
+                                {
+                                    <a asp-action="Profile" asp-controller="Profile" asp-route-id="@layoutUserDto.userId" title="">
+                                        <div><i class="fas fa-user-circle fa-lg"></i></div>
+                                        Profile
+                                    </a>
+                                }
+                            </li>
+                        </ul>
+                    </nav><!--nav end-->
+                    <div class="menu-btn">
+                        <a href="#" title=""><i class="fa fa-bars"></i></a>
+                    </div><!--menu-btn end-->
+                    <div class="user-account">
+                        <div class="user-info">
+
+
+                            <img class="profilePic" style="background:whitesmoke;"
+                                 src="~/ProfilePics/@layoutUserDto.ProfilePic" alt="">
+                            <a class="fullNameCurrent" href="~/Profile/Profile/@layoutUserDto.userId" title="">@layoutUserDto.FullName</a>
+
+
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </div>
+                        <div class="user-account-settingss">
+                            <ul class="us-links">
+                                @if (layoutUserDto.actions.Where(x => x.Url == "/Account/ChangePassword").Any())
+                                {
+                                    <li class="text-center">
+                                        <a href="/Account/ChangePassword" title="">
+                                            <i class="fas fa-user-cog"></i>
+                                            Account Settings
+                                        </a>
+                                    </li>
+                                }
+                                @if (layoutUserDto.actions.Where(x => x.Url == "/Roles/Index").Any())
+                                {
+                                    <li class="text-center">
+                                        <a href="/Roles/Index" title="">
+                                            <i class="fas fa-user-cog"></i>
+                                            Roles
+                                        </a>
+                                    </li>
+                                }
+                                @if (layoutUserDto.actions.Where(x => x.Url == "/Account/AdminControl").Any())
+                                {
+                                    <li class="text-center">
+                                        <a href="/Account/AdminControl" title="">
+                                            <i class="fas fa-user-cog"></i>
+                                            Admin Control
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                            <h3 class="tc"><a href="/Account/Logout" title=""><i class="fas fa-sign-out-alt"></i> Logout</a></h3>
+                        </div><!--user-account-settingss end-->
+                    </div>
+                </div><!--header-data end-->
+            </div>
+        </header><!--header end-->
+
+
+
+
+
+        <main>
+            <div class="main-section">
+                <div class="container">
+                    <div class="main-section-data">
+                        <div class="row">
+                            @RenderBody()
+                        </div>
+                    </div><!-- main-section-data end-->
+                </div>
+            </div>
+        </main>
+
+
+
+
+
+
+
+    </div><!--theme-layout end-->
+    @*scripts*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.mCustomScrollbar.js"></script>
+    <script src="~/lib/slick-carousel/slick.min.js"></script>
+    <script src="~/js/scrollbar.js"></script>
+    <script type="text/javascript" src="~/js/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/script.js"></script>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
